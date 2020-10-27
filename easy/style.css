@@ -1,0 +1,20 @@
+.red{
+background-color: red;
+}
+
+.white{
+    background-color: white;
+}
+
+table{
+    width: 800px;
+    border: 1px;
+}
+
+img{
+    position: absolute;
+    width:330px;
+}
+td{
+    padding:19px;
+}

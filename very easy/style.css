@@ -1,6 +1,16 @@
 table{
+    border:1px black;
     width:20px;
     height: 350px;
     padding:0px;
     border-spacing:0px;
+}
+.white{
+    border:1px black;
+    color:white;
+}
+
+.black{
+    border:1px;
+    background-color:black;
 }
