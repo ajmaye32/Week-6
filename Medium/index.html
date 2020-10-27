@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    h1>{{ collection.title }}</h1>
+  <div class="grid-collection">
+    {% for product in collection.products %}
+      <div class="grid-product">
+        <a href="{{ product.url }}">
+          <img src="{{ product.featured_image.src | img_url: '300x' }}" alt="{{ product.featured_image.alt | escape }}">
+        </a>
+        <a href="{{ product.url }}">{{ product.title }}</a>
+          <p>{ product.price | money }}</p>
+          {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+      </div>
+    {% endfor %}
+  </div>  
+  {% schema %} 
+
+{
+    "name": "Collection",
+    "settings": [
+  {
+    "type": "select",
+    "id":  "product_number",
+    "label": "Number of products per row",
+    "options": [
+		{
+		"value": "two",
+		"label": "two"
+		},
+		{
+		"value": "three",
+		"label": "three"
+		},
+		{
+		"value": "four",
+		"label": "four"
+		}	
+      ]
+    }
+  ]
+}
+
+{% endschema %}
+  <div class="grid-collection-{{ section.settings.product_number }}"></div>
+  <div class="grid-collection-three"></div>
+</body>
+</html>
